@@ -21,11 +21,10 @@ public class Client implements Bootable {
 		ActorSystem system = ActorSystem.create("ClientApplication",
 				ConfigFactory.load().getConfig("WCMapReduceClientApp"));
 
-		final ActorRef fileReadActor = system.actorOf(new Props(
-				FileReadActor.class));
+		final ActorRef fileReadActor = system.actorOf(new Props(FileReadActor.class));
 
 		final ActorRef remoteActor = system
-				.actorFor("akka://WCMapReduceApp@127.0.0.1:2552/user/WCMapReduceActor");
+				.actorFor("akka://WCMapReduceApp@ecs222-2:2552/user/WCMapReduceActor");
 
 		@SuppressWarnings("serial")
 		ActorRef actor = system.actorOf(new Props(new UntypedActorFactory() {
