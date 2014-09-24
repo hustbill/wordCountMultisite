@@ -1,4 +1,4 @@
-package org.akka.essentials.wc.mapreduce.example.client;
+package wordCount.client;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;

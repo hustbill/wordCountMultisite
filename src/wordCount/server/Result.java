@@ -1,4 +1,4 @@
-package org.akka.essentials.wc.mapreduce.example.server;
+package wordCount.server;
 
 import java.io.Serializable;
 

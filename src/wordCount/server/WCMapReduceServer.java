@@ -1,4 +1,4 @@
-package org.akka.essentials.wc.mapreduce.example.server;
+package wordCount.server;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;

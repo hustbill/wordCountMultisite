@@ -1,4 +1,4 @@
-package org.akka.essentials.wc.mapreduce.example.client;
+package wordCount.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
