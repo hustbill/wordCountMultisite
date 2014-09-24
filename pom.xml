@@ -3,7 +3,6 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>WordCountMapReduce</groupId>
-	<artifactId>org.akka.essentials.wc.mapreduce.example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -45,4 +44,5 @@
 			<url>http://repo.typesafe.com/typesafe/releases/</url>
 		</repository>
 	</repositories>
+	<artifactId>wordCount</artifactId>
 </project>
