@@ -13,6 +13,7 @@ public class FileReadActor extends UntypedActor {
 
 		if (message instanceof String) {
 			String fileName = (String) message;
+			System.out.println("fileName =" + fileName);
 			try {
 				BufferedReader reader = new BufferedReader(
 						new InputStreamReader(Thread.currentThread()

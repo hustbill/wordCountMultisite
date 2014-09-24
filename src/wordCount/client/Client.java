@@ -16,7 +16,9 @@ public class Client implements Bootable {
 	 */
 	public static void main(String[] args) {
 
-		final String fileName = "Othello.txt";
+		String fileName = "Othello.txt";
+		if(args.length > 0 && args[0] !=null) 			
+		    fileName = args[0];
 
 		ActorSystem system = ActorSystem.create("ClientApplication",
 				ConfigFactory.load().getConfig("WCMapReduceClientApp"));
