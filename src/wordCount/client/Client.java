@@ -29,6 +29,7 @@ public class Client implements Bootable {
 				final ActorRef fileReadActor = system.actorOf(new Props(
 						FileReadActor.class));
 				
+			
 				final ActorRef remoteActor = system
 						.actorFor("akka://WCMapReduceApp@ecs222-2:2552/user/WCMapReduceActor");
 
@@ -40,11 +41,16 @@ public class Client implements Bootable {
 							}
 						}));
 
+				long before = System.currentTimeMillis();
+				
 				fileReadActor.tell(fileName, actor);
 
+			
 				remoteActor.tell("DISPLAY_LIST");
-
+	
 				system.shutdown();
+
+
 
 			
 	}

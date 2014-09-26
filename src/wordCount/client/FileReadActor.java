@@ -14,6 +14,9 @@ public class FileReadActor extends UntypedActor {
 		if (message instanceof String) {
 			String fileName = (String) message;
 			System.out.println("fileName =" + fileName);
+			// start to read file 
+			long start = System.currentTimeMillis();
+			
 			try {
 				BufferedReader reader = new BufferedReader(
 						new InputStreamReader(Thread.currentThread()
@@ -27,6 +30,9 @@ public class FileReadActor extends UntypedActor {
 				System.out.println("All lines send !");
 				// send the EOF message..
 				getSender().tell(String.valueOf("EOF"));
+				long end = System.currentTimeMillis();
+				long timeSpent  = end - start;
+				System.out.println("Read file time spent: " + timeSpent + " ms");
 			} catch (IOException x) {
 				System.err.format("IOException: %s%n", x);
 			}
