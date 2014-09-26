@@ -22,7 +22,7 @@ public class ClientActor extends UntypedActor {
 	@Override
 	public void onReceive(Object message) throws Exception {
 		if (message instanceof String) {
-			String msg = (String) message;
+			String msg = (String) message;		
 			remoteServer.tell(msg);
 		}
 	}
@@ -35,10 +35,10 @@ public class ClientActor extends UntypedActor {
 	@Override
 	public void postStop() {
 		// tell the world that the calculation is complete
-		long timeSpent = (System.currentTimeMillis() - start); // / 1000;
+		long timeSpent = (System.currentTimeMillis() - start);
 		System.out
 				.println(String
-						.format("\n\tClientActor estimate: \t\t\n\tCalculation time: \t%s Secs",
+						.format("\n\tClientActor estimate: \t\t\n\tCalculation time: \t%s ms",
 								timeSpent));
 	}
 }
