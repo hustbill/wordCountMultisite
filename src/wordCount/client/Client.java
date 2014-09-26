@@ -1,5 +1,6 @@
 package wordCount.client;
 
+import wordCount.server.FileReadActor;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
@@ -26,8 +27,8 @@ public class Client implements Bootable {
 				ActorSystem system = ActorSystem.create("ClientApplication",
 						ConfigFactory.load().getConfig("WCMapReduceClientApp"));
 
-				final ActorRef fileReadActor = system.actorOf(new Props(
-						FileReadActor.class));
+//				final ActorRef fileReadActor = system.actorOf(new Props(
+//						FileReadActor.class));
 				
 				final ActorRef remoteActor = system
 						.actorFor("akka://WCMapReduceApp@ecs222-2:2552/user/WCMapReduceActor");
@@ -40,7 +41,7 @@ public class Client implements Bootable {
 							}
 						}));
 
-				fileReadActor.tell(fileName, actor);
+				//fileReadActor.tell(fileName, actor);
 
 				remoteActor.tell("DISPLAY_LIST");
 

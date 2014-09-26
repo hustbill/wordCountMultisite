@@ -24,7 +24,7 @@ public class WCMapReduceServer implements Bootable {
 	private ActorRef wcMapReduceActor;
 
 	@SuppressWarnings("serial")
-	public WCMapReduceServer(int no_of_reduce_workers, int no_of_map_workers) {
+	public WCMapReduceServer(int no_of_reduce_workers, int no_of_map_workers, String fileName ) {
 
 		system = ActorSystem.create("WCMapReduceApp", ConfigFactory.load()
 				.getConfig("WCMapReduceApp"));
@@ -48,6 +48,11 @@ public class WCMapReduceServer implements Bootable {
 		
 		
 
+		final ActorRef fileReadActor = system.actorOf(new Props(
+				FileReadActor.class));
+
+		fileReadActor.tell(fileName, mapRouter);
+		
 		// create the overall WCMapReduce Actor that acts as the remote actor
 		// for clients
 		wcMapReduceActor = system.actorOf(new Props(new UntypedActorFactory() {
@@ -63,7 +68,8 @@ public class WCMapReduceServer implements Bootable {
 	 */
 	public static void main(String[] args) {
 
-		new WCMapReduceServer(5, 5);
+		String fileName = args[0];
+		new WCMapReduceServer(5, 5, fileName);
 
 	}
 
